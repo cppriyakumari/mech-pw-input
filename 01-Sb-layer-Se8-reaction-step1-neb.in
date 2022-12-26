@@ -1,0 +1,83 @@
+! This is a comment
+# This is another one
+BEGIN
+BEGIN_PATH_INPUT
+&PATH
+  restart_mode      = 'from_scratch'
+  string_method     = 'neb',
+  nstep_path        = 20,
+  ds                = 2.D0,
+  opt_scheme        = "broyden",
+  num_of_images     = 7,
+  k_max             = 0.3D0,
+  k_min             = 0.2D0,
+  CI_scheme         = "auto",
+  path_thr          = 0.1D0,
+/
+END_PATH_INPUT
+BEGIN_ENGINE_INPUT
+&CONTROL
+  prefix         = "01-Sb-layer-Se8-latest-reaction-step1-neb"
+/
+&SYSTEM
+  ibrav                  = 0,
+  nat                    = 16,
+  ntyp                   = 2,
+  ecutwfc                = 50.0,
+  occupations='smearing', degauss=0.01, vdw_corr='grimme-d3',
+/
+&ELECTRONS
+  electron_maxstep= 400,
+  mixing_beta = 0.3,
+/
+&IONS
+/
+ATOMIC_SPECIES
+Sb   121.8   Sb.pbesol-dn-kjpaw_psl.0.3.1.UPF
+Se   78.96   Se.pbesol-n-kjpaw_psl.0.2.UPF
+BEGIN_POSITIONS
+FIRST_IMAGE
+ATOMIC_POSITIONS { angstrom }
+Sb   4.29946   0.00538   2.89427
+Sb   2.14933   1.25371   1.35273
+Sb   2.15020   3.73056   2.91220
+Sb  -0.00141   4.96507   1.35764
+Sb   8.59545   0.00400   2.88582
+Sb   6.44486   1.24611   1.34039
+Sb   6.44128   3.72403   2.89473
+Sb   4.29237   4.96556   1.34675
+Se   4.16646   3.10285   7.29929
+Se   4.83682   3.25316   9.76000
+Se   1.96857   2.63549   7.42156
+Se   2.85750   3.02225  10.82522
+Se   0.97492   4.86971   7.44546
+Se   1.84356   5.24909  10.86505
+Se  -1.01452   4.65779   8.49869
+Se  -0.35590   4.78502  10.95698
+LAST_IMAGE
+ATOMIC_POSITIONS { angstrom }
+Sb   4.34383   0.15433   3.40877
+Sb   2.21189   1.36217   1.82307
+Sb   2.26530   3.95714   3.15146
+Sb  -0.01811   5.16264   1.78208
+Sb   8.66095   0.16736   3.38667
+Sb   6.48997   1.40555   1.85889
+Sb   6.48690   3.90845   3.38724
+Sb   4.46641   5.21348   1.72302
+Se   4.02415   2.31194   6.11918
+Se   4.70180   3.38794   8.34866
+Se   1.78821   2.03830   6.37382
+Se   2.78004   3.37174   9.56174
+Se   0.76387   4.18098   5.71403
+Se   1.65603   5.46451   9.06058
+Se  -1.25459   4.28259   6.91103
+Se  -0.54755   4.93103   9.20250
+END_POSITIONS
+K_POINTS automatic
+  5 5 2 0 0 0
+CELL_PARAMETERS { angstrom }
+  8.60140   0.00000   0.00000
+ -4.30070   7.44903   0.00000
+  0.00000   0.00000  22.44401
+END_ENGINE_INPUT
+END

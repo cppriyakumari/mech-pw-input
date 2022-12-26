@@ -1,0 +1,48 @@
+ &control
+    prefix='01-Sb-layer-I2-latest-reaction',
+    !restart_mode='restart',
+    calculation='relax'
+    nstep=500,
+    ! this is a comment: you can comment out variables
+    ! set pseudo_dir and outdir to suitable directories
+    pseudo_dir=/software/q-e-qe-6.8/pseudo,
+    !outdir='./'
+ /
+ &system    
+    ibrav=  0, nat=  10, ntyp= 2,
+    ecutwfc = 50.0,vdw_corr='grimme-d3',occupations='smearing', degauss=0.01,
+ /
+ &electrons
+    electron_maxstep= 400,
+    mixing_beta= 0.3,
+    !mixing_mode= 'local-TF',
+ /
+ &ions
+ /
+# &cell
+# /
+CELL_PARAMETERS {angstrom} 
+  8.60140   0.00000   0.00000
+ -4.30070   7.44903   0.00000
+  0.00000   0.00000  22.44400
+ATOMIC_SPECIES
+ I   126.9   I.pbesol-n-kjpaw_psl.0.2.UPF
+Sb   121.8   Sb.pbesol-dn-kjpaw_psl.0.3.1.UPF
+ATOMIC_POSITIONS angstrom
+Sb   4.30052   0.00010   2.64265
+Sb   2.15030   1.24160   1.09942
+Sb   2.15034   3.72446   2.64274
+Sb   0.00013   4.96601   1.09920
+Sb   8.60142   0.00001   2.64236
+Sb   6.45102   1.24140   1.09944
+Sb   6.45101   3.72446   2.64258
+Sb   4.30076   4.96601   1.09937
+ I   2.89627   2.41629   6.39950
+ I   5.55943   2.45854   6.21827
+#K_POINTS tpiba
+# this is also a comment: next line, number of k-points
+# 2
+# 0.25 0.25 0.25  1.0
+# 0.25 0.25 0.75  3.0
+K_POINTS automatic
+  5 5 2 0 0 0

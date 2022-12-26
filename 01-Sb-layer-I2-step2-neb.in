@@ -1,0 +1,70 @@
+! This is a comment
+# This is another one
+BEGIN
+BEGIN_PATH_INPUT
+&PATH
+  restart_mode      = 'from_scratch'
+  string_method     = 'neb',
+  nstep_path        = 50,
+  ds                = 2.D0,
+  opt_scheme        = "broyden",
+  num_of_images     = 7,
+  k_max             = 0.3D0,
+  k_min             = 0.2D0,
+  CI_scheme         = "auto",
+  path_thr          = 0.1D0,
+/
+END_PATH_INPUT
+BEGIN_ENGINE_INPUT
+&CONTROL
+  prefix         = "01-Sb-layer-I2-step2-neb"
+/
+&SYSTEM
+  ibrav                  = 0,
+  nat                    = 10,
+  ntyp                   = 2,
+  ecutwfc                = 50.0, vdw_corr='grimme-d3',occupations='smearing', degauss=0.01,
+/
+&ELECTRONS
+  electron_maxstep= 400,
+  mixing_beta = 0.3,
+/
+&IONS
+/
+ATOMIC_SPECIES
+ I   126.9   I.pbesol-n-kjpaw_psl.0.2.UPF
+Sb   121.8   Sb.pbesol-dn-kjpaw_psl.0.3.1.UPF
+BEGIN_POSITIONS
+FIRST_IMAGE
+ATOMIC_POSITIONS { angstrom }
+Sb   4.44692   0.04041   2.97558
+Sb   2.29435   1.31154   1.45384
+Sb   2.26421   3.82552   2.95502
+Sb   0.18064   5.07489   1.31002
+Sb   8.71569   0.04622   2.94509
+Sb   6.56687   1.13045   1.27595
+Sb   6.49645   3.74661   2.53439
+Sb   4.27469   5.10801   1.25451
+ I   2.60109   1.54080   5.99079
+ I   5.02028   2.91443   4.89033
+LAST_IMAGE
+ATOMIC_POSITIONS { angstrom }
+Sb   4.41240   0.22774   2.97306
+Sb   2.25871   1.41589   1.38184
+Sb   2.26000   3.84261   3.02514
+Sb   0.21322   5.19366   1.47598
+Sb   8.67344   0.23994   2.92914
+Sb   6.57070   1.22415   1.05332
+Sb   6.41446   3.76911   2.35444
+Sb   4.12824   5.26484   1.32867
+ I   2.39512  -0.56384   5.11944
+ I   5.58017   3.05728   4.93753
+END_POSITIONS
+K_POINTS automatic
+  5 5 2 0 0 0
+CELL_PARAMETERS { angstrom }
+  8.60140   0.00000   0.00000
+ -4.30070   7.44903   0.00000
+  0.00000   0.00000  22.44401
+END_ENGINE_INPUT
+END
