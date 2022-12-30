@@ -3,8 +3,6 @@
     !restart_mode='restart',
     calculation='relax'
     nstep=500,
-    ! this is a comment: you can comment out variables
-    ! set pseudo_dir and outdir to suitable directories
     pseudo_dir=/software/q-e-qe-6.8/pseudo,
     !outdir='./'
  /
@@ -39,10 +37,5 @@ Sb   6.49645   3.74661   2.53440
 Sb   4.27469   5.10801   1.25451
  I   2.64636   0.47330   4.98387
  I   5.02028   2.91443   4.89032
-#K_POINTS tpiba
-# this is also a comment: next line, number of k-points
-# 2
-# 0.25 0.25 0.25  1.0
-# 0.25 0.25 0.75  3.0
 K_POINTS automatic
   5 5 2 0 0 0
